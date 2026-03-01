@@ -10,9 +10,9 @@ export default function Page() {
     <main>
       <Nav />
       <Hero />
+      <InterestForm />
       <HowItWorks />
       <Features />
-      <InterestForm />
       <Footer />
     </main>
   )
