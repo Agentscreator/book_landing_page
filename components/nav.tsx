@@ -53,9 +53,17 @@ export function Nav() {
           <li>
             <a
               href="#interest"
-              className="text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:text-muted-foreground"
+              className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               Inquire
+            </a>
+          </li>
+          <li>
+            <a
+              href="/auth"
+              className="text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:text-muted-foreground"
+            >
+              Login / Sign up
             </a>
           </li>
         </ul>
@@ -97,6 +105,15 @@ export function Nav() {
                 className="text-[11px] uppercase tracking-[0.2em] text-foreground"
               >
                 Inquire
+              </a>
+            </li>
+            <li>
+              <a
+                href="/auth"
+                onClick={() => setOpen(false)}
+                className="text-[11px] uppercase tracking-[0.2em] text-foreground"
+              >
+                Login / Sign up
               </a>
             </li>
           </ul>
