@@ -5,7 +5,7 @@ import { Features } from "@/components/features"
 import { InterestForm } from "@/components/interest-form"
 import { Footer } from "@/components/footer"
 
-export default export default function Page() {
+export default function Page() {
   return (
     <main>
       <Nav />
