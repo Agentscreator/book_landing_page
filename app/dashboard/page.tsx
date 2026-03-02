@@ -42,11 +42,53 @@ export default async function DashboardPage() {
           <div>
             <h1 className="text-3xl font-bold mb-2">Welcome back, {user.name}</h1>
             <p className="text-muted-foreground">
-              Your booking site is live and accepting clients.
+              {user.websiteUrl 
+                ? "Your booking site is live and accepting clients."
+                : "Your website will be assigned by an administrator."}
             </p>
           </div>
           <LogoutButton />
         </div>
+
+        {/* Website Assignment Card */}
+        {user.websiteUrl ? (
+          <Card className="mb-8 border-2 border-primary/20">
+            <CardHeader>
+              <CardTitle>Your Booking Website</CardTitle>
+              <CardDescription>
+                Share this link with your clients to accept bookings
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center gap-4">
+                <a 
+                  href={user.websiteUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-medium"
+                >
+                  {user.websiteUrl}
+                </a>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => navigator.clipboard.writeText(user.websiteUrl!)}
+                >
+                  Copy Link
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="mb-8 border-2 border-muted">
+            <CardHeader>
+              <CardTitle>Website Not Assigned</CardTitle>
+              <CardDescription>
+                Your booking website will be assigned by an administrator. You'll be notified once it's ready.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        )}
 
         {/* Status Card - Most Important */}
         <Card className="mb-8 border-2">

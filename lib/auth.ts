@@ -4,6 +4,7 @@ export interface User {
   id: number
   name: string
   email: string
+  websiteUrl: string | null
   stripeConnected: boolean
   stripeAccountId: string | null
 }
@@ -23,10 +24,11 @@ export async function createSession(user: User) {
     id: user.id,
     name: user.name,
     email: user.email,
+    websiteUrl: user.websiteUrl,
     stripeConnected: user.stripeConnected,
     stripeAccountId: user.stripeAccountId,
   })
-  
+
   const cookieStore = await cookies()
   cookieStore.set('session', sessionData, {
     httpOnly: true,

@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
       id: user.id,
       name: user.name,
       email: user.email,
+      websiteUrl: user.websiteUrl,
       stripeConnected: user.stripeConnected,
       stripeAccountId: user.stripeAccountId,
     })
