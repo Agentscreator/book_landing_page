@@ -6,6 +6,7 @@ export const users = pgTable('users', {
   email: text('email').notNull().unique(),
   password: text('password').notNull(),
   phone: text('phone'),
+  websiteUrl: text('website_url'),
   stripeAccountId: text('stripe_account_id'),
   stripeConnected: boolean('stripe_connected').default(false).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
@@ -18,7 +19,7 @@ export const bookings = pgTable('bookings', {
   clientEmail: text('client_email').notNull(),
   service: text('service').notNull(),
   price: decimal('price', { precision: 10, scale: 2 }).notNull(),
-  status: text('status').notNull().default('pending'), // pending, paid, completed
+  status: text('status').notNull().default('pending'),
   bookingDate: timestamp('booking_date').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
